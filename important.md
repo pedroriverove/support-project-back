@@ -9,7 +9,10 @@
 - yarn dev
 - yarn typeorm migration:create -n CreateRoles
 - yarn typeorm migration:create -n CreateUsers
-- yarn typeorm migration:create -n CreateTickets
 - yarn typeorm migration:create -n CreateStatus
+- yarn typeorm migration:create -n CreateTickets
+- yarn typeorm migration:create -n CreateRolesSeeder
+- yarn typeorm migration:create -n CreateUsersSeeder
+- yarn typeorm migration:create -n CreateStatusSeeder
 - yarn typeorm migration:show
 - yarn typeorm migration:run
