@@ -25,6 +25,7 @@ export class CreateUsers1652637189883 implements MigrationInterface {
                     {
                         name: "username",
                         type: "varchar",
+                        length: "20",
                         isUnique: true
                     },
                     {
@@ -34,11 +35,11 @@ export class CreateUsers1652637189883 implements MigrationInterface {
                     },
                     {
                         name: "fullname",
-                        type: "varchar",
+                        type: "varchar"
                     },
                     {
                         name: "password",
-                        type: "varchar",
+                        type: "varchar"
                     },
                     {
                         name: "created_at",
@@ -52,6 +53,8 @@ export class CreateUsers1652637189883 implements MigrationInterface {
                         columnNames: ["role_id"],
                         referencedTableName: "roles",
                         referencedColumnNames: ["id"],
+                        onDelete: "CASCADE",
+                        onUpdate: "CASCADE"
                     },
                 ],
             })

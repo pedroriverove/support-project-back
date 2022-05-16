@@ -24,7 +24,8 @@ export class CreateRoles1652637163672 implements MigrationInterface {
                     },
                     {
                         name: "description",
-                        type: "varchar",
+                        type: "text",
+                        isNullable: true
                     },
                     {
                         name: "created_at",

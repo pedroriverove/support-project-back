@@ -4,7 +4,7 @@ import {
     Table
 } from 'typeorm';
 
-export class CreateStatus1652637203774 implements MigrationInterface {
+export class CreateStatus1652637197992 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
