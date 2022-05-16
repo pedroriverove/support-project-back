@@ -21,7 +21,7 @@ export class Ticket {
     userCreator: number;
 
     @Column()
-    assigned_user_id: number;
+    assigned_user_id!: number;
 
     @ManyToOne(() => User)
     @JoinColumn({ name: "assigned_user_id" })
