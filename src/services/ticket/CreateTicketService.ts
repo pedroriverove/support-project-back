@@ -1,7 +1,7 @@
 import { getRepository } from 'typeorm';
-import { Status } from '../entities/Status';
-import { Ticket } from '../entities/Ticket';
-import { User } from '../entities/User';
+import { Status } from '@/entities/Status';
+import { Ticket } from '@/entities/Ticket';
+import { User } from '@/entities/User';
 
 type TicketRequest = {
     creator_user_id: number;

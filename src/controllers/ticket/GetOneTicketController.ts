@@ -2,7 +2,7 @@ import {
     Request,
     Response
 } from 'express';
-import { GetOneTicketService } from '../services/GetOneTicketService';
+import { GetOneTicketService } from '@/services/ticket/GetOneTicketService';
 
 export class GetOneTicketController {
     async handle(req: Request, res: Response) {

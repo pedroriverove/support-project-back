@@ -1,5 +1,5 @@
-import { getRepository } from "typeorm";
-import { Ticket } from "../entities/Ticket";
+import { getRepository } from 'typeorm';
+import { Ticket } from '@/entities/Ticket';
 
 export class DeleteTicketService {
     async execute(id:string) {

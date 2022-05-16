@@ -2,7 +2,7 @@ import {
     Request,
     Response
 } from 'express';
-import { DeleteTicketService } from '../services/DeleteTicketService';
+import { DeleteTicketService } from '@/services/ticket/DeleteTicketService';
 
 export class DeleteTicketController {
     async handle(req: Request, res: Response) {

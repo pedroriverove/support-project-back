@@ -1,7 +1,7 @@
-import { getRepository } from "typeorm";
-import { Ticket } from "../entities/Ticket";
-import { User } from "../entities/User";
-import { Status } from "../entities/Status";
+import { getRepository } from 'typeorm';
+import { Ticket } from '@/entities/Ticket';
+import { User } from '@/entities/User';
+import { Status } from '@/entities/Status';
 
 type TicketUpdateRequest = {
     id: string;
