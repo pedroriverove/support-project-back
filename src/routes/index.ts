@@ -9,18 +9,18 @@ import { UpdateTicketController } from '@/controllers/ticket/UpdateTicketControl
 const routes = Router();
 
 routes
-    .route("/tickets")
+    .route("/api/v1/tickets")
     .get(new GetAllTicketsController().handle)
     .post(new CreateTicketController().handle);
 
 routes
-    .route("/tickets/:id")
+    .route("/api/v1/tickets/:id")
     .get(new GetOneTicketController().handle)
     .put(new UpdateTicketController().handle)
     .delete(new DeleteTicketController().handle);
 
 routes
-    .route("/users")
+    .route("/api/v1/users")
     .get(new GetAllUsersController().handle);
 
 export { routes };

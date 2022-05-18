@@ -6,7 +6,7 @@
 - yarn add tsconfig-paths
 
 #### Comandos
-- yarn
+- yarn install
 - yarn tsc --init
 - yarn dev
 - yarn typeorm migration:create -n CreateRoles
