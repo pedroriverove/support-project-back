@@ -1,7 +1,4 @@
-import {
-    Request,
-    Response
-} from 'express';
+import { Request, Response } from 'express';
 import { GetAllTicketsService } from '@/services/ticket/GetAllTicketsService';
 
 export class GetAllTicketsController {

@@ -1,9 +1,4 @@
-import {
-    Column,
-    CreateDateColumn,
-    Entity,
-    PrimaryGeneratedColumn
-} from 'typeorm';
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import * as bcrypt from 'bcryptjs';
 
 @Entity("users")
@@ -12,13 +7,13 @@ export class User {
     id: number;
 
     @Column()
-    role_id : number;
+    role_id: number;
 
     @Column()
-    username : string;
+    username: string;
 
     @Column()
-    email : string;
+    email: string;
 
     @Column()
     fullname: string;

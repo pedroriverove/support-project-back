@@ -21,7 +21,8 @@ export class CreateTicketService {
                       name,
                       description,
                       assignment_date,
-                      resolution_date }: TicketRequest):Promise<Error | Ticket> {
+                      resolution_date
+                  }: TicketRequest): Promise<Error | Ticket> {
         const repo = getRepository(Ticket);
         const repoUser = getRepository(User);
         const repoStatus = getRepository(Status);

@@ -5,8 +5,8 @@ import {
     ManyToOne,
     JoinColumn, Column
 } from 'typeorm';
-import { Status } from "./Status";
-import { User } from "./User";
+import { Status } from '@/entities/Status';
+import { User } from '@/entities/User';
 
 @Entity("tickets")
 export class Ticket {

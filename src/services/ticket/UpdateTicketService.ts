@@ -23,7 +23,8 @@ export class UpdateTicketService {
                       name,
                       description,
                       assignment_date,
-                      resolution_date }: TicketUpdateRequest) {
+                      resolution_date
+                  }: TicketUpdateRequest) {
         const repo = getRepository(Ticket);
         const repoUser = getRepository(User);
         const repoStatus = getRepository(Status);

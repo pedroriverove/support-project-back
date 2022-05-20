@@ -1,7 +1,4 @@
-import {
-    Request,
-    Response
-} from 'express';
+import { Request, Response } from 'express';
 import { GetAllUsersService } from '@/services/user/GetAllUsersService';
 
 export class GetAllUsersController {
