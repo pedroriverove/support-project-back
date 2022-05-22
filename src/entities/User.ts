@@ -1,5 +1,6 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
 import * as bcrypt from 'bcryptjs';
+import { Role } from '@/entities/Role';
 
 @Entity("users")
 export class User {
@@ -8,6 +9,10 @@ export class User {
 
     @Column()
     role_id: number;
+
+    @ManyToOne(() => Role)
+    @JoinColumn({ name: "role_id" })
+    roles: number;
 
     @Column()
     username: string;

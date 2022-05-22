@@ -1,7 +1,5 @@
 import { getRepository } from 'typeorm';
-import { Status } from '@/entities/Status';
 import { Ticket } from '@/entities/Ticket';
-import { User } from '@/entities/User';
 
 type TicketRequest = {
     creator_user_id: number;
@@ -24,12 +22,6 @@ export class CreateTicketService {
                       resolution_date
                   }: TicketRequest): Promise<Error | Ticket> {
         const repo = getRepository(Ticket);
-        const repoUser = getRepository(User);
-        const repoStatus = getRepository(Status);
-
-        if (!(await repoUser.findOne(creator_user_id))) return new Error("User does not exists!");
-
-        if (!(await repoStatus.findOne(status_id))) return new Error("Status does not exists!");
 
         const ticket = repo.create({
             creator_user_id,
@@ -41,8 +33,8 @@ export class CreateTicketService {
             resolution_date
         });
 
-        await repo.save(ticket);
+        const create = await repo.save(ticket)
 
-        return ticket;
+        return await repo.findOne(create.id, { relations: ["userCreator", "userAssigned", "status"] });
     }
 }

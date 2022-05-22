@@ -1,7 +1,5 @@
 import { getRepository } from 'typeorm';
 import { Ticket } from '@/entities/Ticket';
-import { User } from '@/entities/User';
-import { Status } from '@/entities/Status';
 
 type TicketUpdateRequest = {
     id: string;
@@ -26,16 +24,10 @@ export class UpdateTicketService {
                       resolution_date
                   }: TicketUpdateRequest) {
         const repo = getRepository(Ticket);
-        const repoUser = getRepository(User);
-        const repoStatus = getRepository(Status);
 
         const ticket = await repo.findOne(id);
 
         if (!ticket) return new Error("Ticket does not exists!!");
-
-        if (!(await repoUser.findOne(creator_user_id))) return new Error("User does not exists");
-
-        if (!(await repoStatus.findOne(status_id))) return new Error("Status does not exists");
 
         ticket.creator_user_id = creator_user_id ? creator_user_id : ticket.creator_user_id;
         ticket.assigned_user_id = assigned_user_id ? assigned_user_id : ticket.assigned_user_id;
@@ -45,8 +37,8 @@ export class UpdateTicketService {
         ticket.assignment_date = assignment_date ? assignment_date : ticket.assignment_date;
         ticket.resolution_date = resolution_date ? resolution_date : ticket.resolution_date;
 
-        await repo.save(ticket);
+        const update = await repo.save(ticket)
 
-        return ticket;
+        return await repo.findOne(update.id, { relations: ["userCreator", "userAssigned", "status"] });
     }
 }

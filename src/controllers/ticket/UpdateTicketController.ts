@@ -3,7 +3,7 @@ import { UpdateTicketService } from '@/services/ticket/UpdateTicketService';
 
 export class UpdateTicketController {
     async handle(req: Request, res: Response) {
-        const {id} = req.params;
+        const { id } = req.params;
         const {
             creator_user_id,
             assigned_user_id,

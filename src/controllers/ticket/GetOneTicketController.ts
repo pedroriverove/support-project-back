@@ -3,7 +3,7 @@ import { GetOneTicketService } from '@/services/ticket/GetOneTicketService';
 
 export class GetOneTicketController {
     async handle(req: Request, res: Response) {
-        const {id} = req.params;
+        const { id } = req.params;
 
         const service = new GetOneTicketService();
 

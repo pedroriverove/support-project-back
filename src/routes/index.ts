@@ -4,6 +4,7 @@ import { DeleteTicketController } from '@/controllers/ticket/DeleteTicketControl
 import { GetAllTicketsController } from '@/controllers/ticket/GetAllTicketsController';
 import { GetAllUsersController } from '@/controllers/user/GetAllUsersController';
 import { GetOneTicketController } from '@/controllers/ticket/GetOneTicketController';
+import { GetUserRoleController } from '@/controllers/user/GetUserRoleController';
 import { UpdateTicketController } from '@/controllers/ticket/UpdateTicketController';
 
 const routes = Router();
@@ -22,5 +23,9 @@ routes
 routes
     .route("/api/v1/users")
     .get(new GetAllUsersController().handle);
+
+routes
+    .route("/api/v1/users/:name")
+    .get(new GetUserRoleController().handle);
 
 export { routes };
