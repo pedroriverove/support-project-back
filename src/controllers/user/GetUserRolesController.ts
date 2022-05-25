@@ -1,11 +1,11 @@
 import { Request, Response } from 'express';
-import { GetUsersRoleService } from '@/services/user/GetUsersRoleService';
+import { GetUserRolesService } from '@/services/user/GetUserRolesService';
 
-export class GetUsersRoleController {
+export class GetUserRolesController {
     async handle(req: Request, res: Response) {
         const { name } = req.params;
 
-        const service = new GetUsersRoleService();
+        const service = new GetUserRolesService();
 
         const users = await service.execute({ name });
 

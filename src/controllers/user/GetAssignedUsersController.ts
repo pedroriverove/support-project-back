@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
-import { GetUsersAssignedService } from '@/services/user/GetUsersAssignedService';
+import { GetAssignedUsersService } from '@/services/user/GetAssignedUsersService';
 
-export class GetUsersAssignedController {
+export class GetAssignedUsersController {
     async handle(req: Request, res: Response) {
-        const service = new GetUsersAssignedService();
+        const service = new GetAssignedUsersService();
 
         const users = await service.execute();
 

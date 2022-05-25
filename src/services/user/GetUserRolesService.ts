@@ -5,7 +5,7 @@ type UserGetRequest = {
     name: string;
 };
 
-export class GetUsersRoleService {
+export class GetUserRolesService {
     async execute({ name }: UserGetRequest) {
         return await getRepository(User)
             .createQueryBuilder("user")

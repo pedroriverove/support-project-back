@@ -1,7 +1,7 @@
 import { getRepository } from 'typeorm';
 import { User } from '@/entities/User';
 
-export class GetUsersAssignedService {
+export class GetAssignedUsersService {
     async execute() {
         return await getRepository(User)
             .createQueryBuilder("user")
