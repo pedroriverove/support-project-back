@@ -5,6 +5,8 @@ export class GetAllUsersService {
     async execute() {
         const repo = getRepository(User);
 
-        return await repo.find();
+        return await repo.find({
+            relations: ["roles"]
+        });
     }
 }

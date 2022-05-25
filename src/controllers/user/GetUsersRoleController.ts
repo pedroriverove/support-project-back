@@ -7,7 +7,7 @@ export class GetUsersRoleController {
 
         const service = new GetUsersRoleService();
 
-        const users = await service.execute({name});
+        const users = await service.execute({ name });
 
         return res.json(users);
     }

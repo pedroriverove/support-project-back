@@ -7,7 +7,7 @@ export class GetOneTicketController {
 
         const service = new GetOneTicketService();
 
-        const result = await service.execute({id});
+        const result = await service.execute({ id });
 
         if (result instanceof Error) return res.status(400).json(result.message);
 
