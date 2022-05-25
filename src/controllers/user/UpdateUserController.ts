@@ -1,0 +1,30 @@
+import { Request, Response } from 'express';
+import { UpdateUserService } from '@/services/user/UpdateUserService';
+
+export class UpdateUserController {
+    async handle(req: Request, res: Response) {
+        const { id } = req.params;
+        const {
+            role_id,
+            username,
+            email,
+            fullname,
+            password
+        } = req.body;
+
+        const service = new UpdateUserService();
+
+        const result = await service.execute({
+            id,
+            role_id,
+            username,
+            email,
+            fullname,
+            password
+        });
+
+        if (result instanceof Error) return res.status(400).json(result.message);
+
+        return res.json(result);
+    }
+}
