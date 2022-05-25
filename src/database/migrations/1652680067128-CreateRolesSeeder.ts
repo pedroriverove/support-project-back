@@ -4,10 +4,16 @@ import { Role } from '@/entities/Role';
 export class CreateRolesSeeder1652680067128 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
-        let roles: string[];
+        let roles: { name: string; description: string }[];
         roles = [
-            "admin",
-            "dev"
+            {
+                "name": "admin",
+                "description": "Administrador"
+            },
+            {
+                "name": "dev",
+                "description": "Desarrollador"
+            }
         ];
 
         await this.insertEntity(roles);
@@ -16,14 +22,15 @@ export class CreateRolesSeeder1652680067128 implements MigrationInterface {
     public async down(queryRunner: QueryRunner): Promise<void> {
     }
 
-    public async insertEntity(inserts: Array<string>) {
+    public async insertEntity(inserts: Array<any>) {
         for (const insert of inserts) {
             let role: Role = new Role();
 
-            role.name = insert
+            role.name = insert.name;
+            role.description = insert.description;
 
-            const userRepository = getRepository(Role);
-            await userRepository.save(role);
+            const roleRepository = getRepository(Role);
+            await roleRepository.save(role);
         }
     }
 
