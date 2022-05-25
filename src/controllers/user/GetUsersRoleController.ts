@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { GetUsersRoleService } from '@/services/user/GetUsersRoleService';
 
-export class GetUserRoleController {
+export class GetUsersRoleController {
     async handle(req: Request, res: Response) {
         const { name } = req.params;
 

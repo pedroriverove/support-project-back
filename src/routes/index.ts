@@ -4,7 +4,8 @@ import { DeleteTicketController } from '@/controllers/ticket/DeleteTicketControl
 import { GetAllTicketsController } from '@/controllers/ticket/GetAllTicketsController';
 import { GetAllUsersController } from '@/controllers/user/GetAllUsersController';
 import { GetOneTicketController } from '@/controllers/ticket/GetOneTicketController';
-import { GetUserRoleController } from '@/controllers/user/GetUserRoleController';
+import { GetUsersRoleController } from '@/controllers/user/GetUsersRoleController';
+import { GetUsersAssignedController } from '@/controllers/user/GetUsersAssignedController';
 import { UpdateTicketController } from '@/controllers/ticket/UpdateTicketController';
 
 const routes = Router();
@@ -25,7 +26,11 @@ routes
     .get(new GetAllUsersController().handle);
 
 routes
+    .route("/api/v1/users/assigned")
+    .get(new GetUsersAssignedController().handle);
+
+routes
     .route("/api/v1/users/:name")
-    .get(new GetUserRoleController().handle);
+    .get(new GetUsersRoleController().handle);
 
 export { routes };
