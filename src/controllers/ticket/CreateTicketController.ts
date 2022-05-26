@@ -1,5 +1,5 @@
-import { Request, Response } from 'express';
-import { CreateTicketService } from '@/services/ticket/CreateTicketService';
+import {Request, Response} from 'express';
+import {CreateTicketService} from '@/services/ticket/CreateTicketService';
 
 export class CreateTicketController {
     async handle(req: Request, res: Response) {

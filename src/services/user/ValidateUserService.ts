@@ -1,5 +1,5 @@
-import { getRepository } from 'typeorm';
-import { User } from '@/entities/User';
+import {getRepository} from 'typeorm';
+import {User} from '@/entities/User';
 
 type UserRequest = {
     field: string;
@@ -12,7 +12,7 @@ export class ValidateUserService {
 
         if (field === "email") {
             const query = await repo.createQueryBuilder("user")
-                .where('user.email = :value', { value })
+                .where('user.email = :value', {value})
                 .getOne();
 
             return (typeof query !== 'undefined') ? query.email : false;
@@ -20,7 +20,7 @@ export class ValidateUserService {
 
         if (field === "username") {
             const query = await repo.createQueryBuilder("user")
-                .where('user.username = :value', { value })
+                .where('user.username = :value', {value})
                 .getOne();
 
             return (typeof query !== 'undefined') ? query.username : false;

@@ -1,5 +1,5 @@
-import { getRepository } from 'typeorm';
-import { Ticket } from '@/entities/Ticket';
+import {getRepository} from 'typeorm';
+import {Ticket} from '@/entities/Ticket';
 
 type TicketRequest = {
     creator_user_id: number;
@@ -35,6 +35,6 @@ export class CreateTicketService {
 
         const create = await repo.save(ticket)
 
-        return await repo.findOne(create.id, { relations: ["userCreator", "userAssigned", "status"] });
+        return await repo.findOne(create.id, {relations: ["userCreator", "userAssigned", "status"]});
     }
 }

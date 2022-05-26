@@ -1,17 +1,17 @@
-import { Router } from 'express';
-import { CreateTicketController } from '@/controllers/ticket/CreateTicketController';
-import { CreateUserController } from '@/controllers/user/CreateUserController';
-import { DeleteTicketController } from '@/controllers/ticket/DeleteTicketController';
-import { GetAllRolesController } from '@/controllers/role/GetAllRolesController';
-import { GetAllTicketsController } from '@/controllers/ticket/GetAllTicketsController';
-import { GetAllUsersController } from '@/controllers/user/GetAllUsersController';
-import { GetAssignedUsersController } from '@/controllers/user/GetAssignedUsersController';
-import { GetOneTicketController } from '@/controllers/ticket/GetOneTicketController';
-import { GetOneUserController } from '@/controllers/user/GetOneUserController';
-import { GetUserRolesController } from '@/controllers/user/GetUserRolesController';
-import { UpdateTicketController } from '@/controllers/ticket/UpdateTicketController';
-import { UpdateUserController } from '@/controllers/user/UpdateUserController';
-import { ValidateUserController } from "@/controllers/user/ValidateUserController";
+import {Router} from 'express';
+import {CreateTicketController} from '@/controllers/ticket/CreateTicketController';
+import {CreateUserController} from '@/controllers/user/CreateUserController';
+import {DeleteTicketController} from '@/controllers/ticket/DeleteTicketController';
+import {GetAllRolesController} from '@/controllers/role/GetAllRolesController';
+import {GetAllTicketsController} from '@/controllers/ticket/GetAllTicketsController';
+import {GetAllUsersController} from '@/controllers/user/GetAllUsersController';
+import {GetAssignedUsersController} from '@/controllers/user/GetAssignedUsersController';
+import {GetOneTicketController} from '@/controllers/ticket/GetOneTicketController';
+import {GetOneUserController} from '@/controllers/user/GetOneUserController';
+import {GetUserRolesController} from '@/controllers/user/GetUserRolesController';
+import {UpdateTicketController} from '@/controllers/ticket/UpdateTicketController';
+import {UpdateUserController} from '@/controllers/user/UpdateUserController';
+import {ValidateUserController} from "@/controllers/user/ValidateUserController";
 
 const routes = Router();
 
@@ -52,4 +52,4 @@ routes
     .route("/api/v1/users/validate")
     .post(new ValidateUserController().handle);
 
-export { routes };
+export {routes};

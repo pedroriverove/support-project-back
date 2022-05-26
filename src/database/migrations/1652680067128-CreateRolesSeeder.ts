@@ -1,5 +1,5 @@
-import { getRepository, MigrationInterface, QueryRunner } from 'typeorm';
-import { Role } from '@/entities/Role';
+import {getRepository, MigrationInterface, QueryRunner} from 'typeorm';
+import {Role} from '@/entities/Role';
 
 export class CreateRolesSeeder1652680067128 implements MigrationInterface {
 

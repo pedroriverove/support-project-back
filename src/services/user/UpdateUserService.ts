@@ -1,5 +1,5 @@
-import { getRepository } from 'typeorm';
-import { User } from '@/entities/User';
+import {getRepository} from 'typeorm';
+import {User} from '@/entities/User';
 
 type UserUpdateRequest = {
     id: string;
@@ -24,6 +24,6 @@ export class UpdateUserService {
 
         const update = await repo.save(user)
 
-        return await repo.findOne(update.id, { relations: ["roles"] });
+        return await repo.findOne(update.id, {relations: ["roles"]});
     }
 }

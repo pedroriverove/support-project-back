@@ -1,5 +1,5 @@
-import { getRepository } from 'typeorm';
-import { User } from '@/entities/User';
+import {getRepository} from 'typeorm';
+import {User} from '@/entities/User';
 
 type UserRequest = {
     role_id: number;
@@ -20,13 +20,13 @@ export class CreateUserService {
         const repo = getRepository(User);
 
         const usernameExists = await repo.createQueryBuilder("user")
-            .where('user.username = :username', { username })
+            .where('user.username = :username', {username})
             .getOne();
 
         if (usernameExists) return new Error("Username already exists!!");
 
         const emailExists = await repo.createQueryBuilder("user")
-            .where('user.email = :email', { email })
+            .where('user.email = :email', {email})
             .getOne();
 
         if (emailExists) return new Error("Email already exists!!");
@@ -43,6 +43,6 @@ export class CreateUserService {
 
         const create = await repo.save(user)
 
-        return await repo.findOne(create.id, { relations: ["roles"] });
+        return await repo.findOne(create.id, {relations: ["roles"]});
     }
 }

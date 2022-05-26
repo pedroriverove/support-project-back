@@ -1,5 +1,5 @@
-import { Request, Response } from 'express';
-import { ValidateUserService } from '@/services/user/ValidateUserService';
+import {Request, Response} from 'express';
+import {ValidateUserService} from '@/services/user/ValidateUserService';
 
 export class ValidateUserController {
     async handle(req: Request, res: Response) {

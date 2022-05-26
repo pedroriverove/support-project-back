@@ -1,15 +1,7 @@
-import {
-    Column,
-    CreateDateColumn,
-    Entity,
-    JoinColumn,
-    ManyToOne,
-    OneToMany,
-    PrimaryGeneratedColumn
-} from 'typeorm';
+import {Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn} from 'typeorm';
 import * as bcrypt from 'bcryptjs';
-import { Role } from '@/entities/Role';
-import { Ticket } from '@/entities/Ticket';
+import {Role} from '@/entities/Role';
+import {Ticket} from '@/entities/Ticket';
 
 @Entity("users")
 export class User {

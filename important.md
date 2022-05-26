@@ -18,4 +18,4 @@
 - yarn typeorm migration:create -n CreateStatusSeeder
 - yarn typeorm migration:show
 - yarn typeorm migration:run
-- yarn typeorm migration:revert -- PARAMETERS: [1652680067128,"CreateRolesSeeder1652680067128"]
+- yarn typeorm migration:revert

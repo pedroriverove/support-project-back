@@ -1,5 +1,5 @@
-import { getRepository, MigrationInterface, QueryRunner } from 'typeorm';
-import { Status } from '@/entities/Status';
+import {getRepository, MigrationInterface, QueryRunner} from 'typeorm';
+import {Status} from '@/entities/Status';
 
 export class CreateStatusSeeder1652682058352 implements MigrationInterface {
 

@@ -1,5 +1,5 @@
-import { getRepository, MigrationInterface, QueryRunner } from 'typeorm';
-import { User } from '@/entities/User';
+import {getRepository, MigrationInterface, QueryRunner} from 'typeorm';
+import {User} from '@/entities/User';
 
 export class CreateUsersSeeder1652681909837 implements MigrationInterface {
 
