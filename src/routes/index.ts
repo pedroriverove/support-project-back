@@ -2,50 +2,46 @@ import {Router} from 'express';
 import {CreateTicketController} from '@/controllers/ticket/CreateTicketController';
 import {CreateUserController} from '@/controllers/user/CreateUserController';
 import {DeleteTicketController} from '@/controllers/ticket/DeleteTicketController';
-import {GetAllRolesController} from '@/controllers/role/GetAllRolesController';
-import {GetAllTicketsController} from '@/controllers/ticket/GetAllTicketsController';
-import {GetAllUsersController} from '@/controllers/user/GetAllUsersController';
-import {GetAssignedUsersController} from '@/controllers/user/GetAssignedUsersController';
-import {GetOneTicketController} from '@/controllers/ticket/GetOneTicketController';
-import {GetOneUserController} from '@/controllers/user/GetOneUserController';
-import {GetUserRolesController} from '@/controllers/user/GetUserRolesController';
+import {RoleController} from '@/controllers/role/RoleController';
+import {TicketController} from '@/controllers/ticket/TicketController';
 import {UpdateTicketController} from '@/controllers/ticket/UpdateTicketController';
 import {UpdateUserController} from '@/controllers/user/UpdateUserController';
-import {ValidateUserController} from "@/controllers/user/ValidateUserController";
+import {UsersController} from '@/controllers/user/UsersController';
+import {ValidateUserController} from '@/controllers/user/ValidateUserController';
 
 const routes = Router();
 
 routes
     .route("/api/v1/assigned-users")
-    .get(new GetAssignedUsersController().handle);
+    .get(new UsersController().assignedUsers);
 
 routes
     .route("/api/v1/roles")
-    .get(new GetAllRolesController().handle);
+    .get(new RoleController().all);
 
 routes
     .route("/api/v1/tickets")
-    .get(new GetAllTicketsController().handle)
+    .get(new TicketController().all)
     .post(new CreateTicketController().handle);
 
 routes
     .route("/api/v1/tickets/:id")
-    .get(new GetOneTicketController().handle)
+    .get(new TicketController().one)
     .put(new UpdateTicketController().handle)
     .delete(new DeleteTicketController().handle);
 
 routes
     .route("/api/v1/user-roles/:name")
-    .get(new GetUserRolesController().handle);
+    .get(new UsersController().search);
 
 routes
     .route("/api/v1/users")
-    .get(new GetAllUsersController().handle)
+    .get(new UsersController().all)
     .post(new CreateUserController().handle);
 
 routes
     .route("/api/v1/users/:id")
-    .get(new GetOneUserController().handle)
+    .get(new UsersController().one)
     .put(new UpdateUserController().handle);
 
 routes

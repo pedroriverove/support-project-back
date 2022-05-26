@@ -1,12 +1,20 @@
 import {getRepository} from 'typeorm';
 import {Ticket} from '@/entities/Ticket';
 
-type TicketGetRequest = {
+type OneRequest = {
     id: string;
 };
 
-export class GetOneTicketService {
-    async execute({id}: TicketGetRequest) {
+export class TicketService {
+    async getAll() {
+        const repo = getRepository(Ticket);
+
+        return await repo.find({
+            relations: ["userCreator", "userAssigned", "status"]
+        });
+    }
+
+    async getOne({id}: OneRequest) {
         const repo = getRepository(Ticket);
 
         const ticket = await repo.findOne(id, {relations: ["userCreator", "userAssigned", "status"]});
