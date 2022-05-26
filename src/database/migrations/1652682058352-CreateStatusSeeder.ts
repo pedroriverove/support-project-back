@@ -16,6 +16,9 @@ export class CreateStatusSeeder1652682058352 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
+        getRepository(Status)
+            .createQueryBuilder()
+            .softDelete();
     }
 
     public async insertEntity(inserts: Array<string>) {

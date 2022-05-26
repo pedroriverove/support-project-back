@@ -20,6 +20,9 @@ export class CreateRolesSeeder1652680067128 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
+        getRepository(Role)
+            .createQueryBuilder()
+            .softDelete();
     }
 
     public async insertEntity(inserts: Array<any>) {
@@ -29,8 +32,8 @@ export class CreateRolesSeeder1652680067128 implements MigrationInterface {
             role.name = insert.name;
             role.description = insert.description;
 
-            const roleRepository = getRepository(Role);
-            await roleRepository.save(role);
+            await getRepository(Role)
+                .save(role);
         }
     }
 

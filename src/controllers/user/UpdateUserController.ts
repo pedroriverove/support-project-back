@@ -6,10 +6,7 @@ export class UpdateUserController {
         const { id } = req.params;
         const {
             role_id,
-            username,
-            email,
-            fullname,
-            password
+            fullname
         } = req.body;
 
         const service = new UpdateUserService();
@@ -17,10 +14,7 @@ export class UpdateUserController {
         const result = await service.execute({
             id,
             role_id,
-            username,
-            email,
             fullname,
-            password
         });
 
         if (result instanceof Error) return res.status(400).json(result.message);

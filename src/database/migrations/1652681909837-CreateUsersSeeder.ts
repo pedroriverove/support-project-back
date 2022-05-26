@@ -40,6 +40,9 @@ export class CreateUsersSeeder1652681909837 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
+        getRepository(User)
+            .createQueryBuilder()
+            .softDelete();
     }
 
     public async insertEntity(inserts: Array<any>) {
