@@ -14,7 +14,7 @@ export class TicketService {
         });
     }
 
-    async getOne({id}: OneRequest) {
+    async getOneById({id}: OneRequest) {
         const repo = getRepository(Ticket);
 
         const ticket = await repo.findOne(id, {relations: ["userCreator", "userAssigned", "status"]});

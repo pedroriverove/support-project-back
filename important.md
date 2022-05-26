@@ -4,6 +4,8 @@
 - yarn add @types/express @types/nodemon nodemon ts-node-dev typescript -D
 - yarn add bcryptjs
 - yarn add tsconfig-paths
+- yarn add jsonwebtoken
+- yarn add class-validator --save
 
 #### Comandos
 - yarn install

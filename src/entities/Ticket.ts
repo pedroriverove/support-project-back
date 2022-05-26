@@ -12,21 +12,21 @@ export class Ticket {
 
     @ManyToOne(() => User)
     @JoinColumn({name: "creator_user_id"})
-    userCreator: number;
+    userCreator: any;
 
     @Column()
     assigned_user_id!: number;
 
     @ManyToOne(() => User)
     @JoinColumn({name: "assigned_user_id"})
-    userAssigned!: number;
+    userAssigned!: any;
 
     @Column()
     status_id: number;
 
     @ManyToOne(() => Status)
     @JoinColumn({name: "status_id"})
-    status: number;
+    status: any;
 
     @Column()
     name: string;

@@ -13,7 +13,7 @@ export class User {
 
     @ManyToOne(() => Role)
     @JoinColumn({name: "role_id"})
-    roles: number;
+    roles: any;
 
     @Column()
     username: string;

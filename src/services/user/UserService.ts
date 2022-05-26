@@ -44,17 +44,19 @@ export class UserService {
             .getMany();
     }
 
-    async getOne({id}: OneRequest) {
+    async getOneById({id}: OneRequest) {
         const repo = getRepository(User);
 
-        const user = await repo.findOne(id, {relations: ["roles"]});
+        const user = await repo.findOneOrFail(id, {
+            relations: ["roles"]
+        });
 
         if (!user) return new Error("User does not exists!!");
 
         return user;
     }
 
-    async getSearch({name}: SearchRequest) {
+    async getUsersByRole({name}: SearchRequest) {
         return await getRepository(User)
             .createQueryBuilder("user")
             .innerJoinAndSelect("user.roles", "role", "role.name = :name", {name})
