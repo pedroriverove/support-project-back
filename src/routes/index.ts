@@ -26,44 +26,86 @@ routes
     );
 
 routes
-    .route("/api/v1/assigned-users")
-    .get(new UsersController().getAssignedUsers);
+    .route("/api/v1/assigned-users/:id([0-9]+)")
+    .get(
+        [CheckJwt, CheckRole(["admin"])],
+        new UsersController().getAssignedUsers
+    );
 
 routes
     .route("/api/v1/assigned-tickets/:id([0-9]+)")
-    .get(new TicketController().getAssignedTickets);
+    .get(
+        [CheckJwt, CheckRole(["dev"])],
+        new TicketController().getAssignedTickets
+    );
 
 routes
     .route("/api/v1/roles")
-    .get(new RoleController().all);
+    .get(
+        [CheckJwt, CheckRole(["admin"])],
+        new RoleController().all
+    );
 
 routes
     .route("/api/v1/tickets")
-    .get(new TicketController().getAll)
-    .post(new CreateTicketController().handle);
+    .get(
+        [CheckJwt, CheckRole(["admin"])],
+        new TicketController().getAll
+    )
+    .post(
+        [CheckJwt, CheckRole(["admin"])],
+        new CreateTicketController().handle
+    );
 
 routes
     .route("/api/v1/tickets/:id([0-9]+)")
-    .get(new TicketController().getOneById)
-    .put(new UpdateTicketController().handle)
-    .delete(new DeleteTicketController().handle);
+    .get(
+        [CheckJwt, CheckRole(["admin"])],
+        new TicketController().getOneById
+    )
+    .put(
+        [CheckJwt, CheckRole(["admin"])],
+        new UpdateTicketController().handle
+    )
+    .delete(
+        [CheckJwt, CheckRole(["admin"])],
+        new DeleteTicketController().handle
+    );
 
 routes
     .route("/api/v1/user-roles/:name")
-    .get(new UsersController().getUsersByRole);
+    .get(
+        [CheckJwt, CheckRole(["admin"])],
+        new UsersController().getUsersByRole
+    );
 
 routes
     .route("/api/v1/users")
-    .get(new UsersController().getAll)
-    .post(new CreateUserController().handle);
+    .get(
+        [CheckJwt, CheckRole(["admin"])],
+        new UsersController().getAll
+    )
+    .post(
+        [CheckJwt, CheckRole(["admin"])],
+        new CreateUserController().handle
+    );
 
 routes
     .route("/api/v1/users/:id([0-9]+)")
-    .get(new UsersController().getOneById)
-    .put(new UpdateUserController().handle);
+    .get(
+        [CheckJwt, CheckRole(["admin", "dev"])],
+        new UsersController().getOneById
+    )
+    .put(
+        [CheckJwt, CheckRole(["admin"])],
+        new UpdateUserController().handle
+    );
 
 routes
     .route("/api/v1/users/validate")
-    .post(new ValidateUserController().handle);
+    .post(
+        [CheckJwt, CheckRole(["admin"])],
+        new ValidateUserController().handle
+    );
 
 export {routes};
