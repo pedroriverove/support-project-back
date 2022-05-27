@@ -11,11 +11,15 @@ export class UsersController {
     }
 
     async getAssignedUsers(req: Request, res: Response) {
+        const {id} = req.params;
+
         const service = new UserService();
 
-        const users = await service.getAssignedUsers();
+        const result = await service.getAssignedUsers({id});
 
-        return res.json(users);
+        if (result instanceof Error) return res.status(400).json(result.message);
+
+        return res.json(result);
     }
 
     async getOneById(req: Request, res: Response) {

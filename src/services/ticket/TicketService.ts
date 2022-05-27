@@ -22,6 +22,7 @@ export class TicketService {
         return await getRepository(Ticket)
             .createQueryBuilder("ticket")
             .leftJoinAndSelect('ticket.userCreator', 'userCreator')
+            .leftJoinAndSelect('ticket.userAssigned', 'userAssigned')
             .leftJoinAndSelect('ticket.status', 'status')
             .where('ticket.assigned_user_id = :id', {id})
             .getMany();
