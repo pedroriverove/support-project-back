@@ -6,6 +6,7 @@
 - yarn add tsconfig-paths
 - yarn add jsonwebtoken
 - yarn add class-validator --save
+- yarn add @types/cors cors helmet
 
 #### Comandos
 - yarn install
