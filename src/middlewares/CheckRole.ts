@@ -6,8 +6,8 @@ export const CheckRole = (roles: Array<string>) => {
     return async (req: Request, res: Response, next: NextFunction) => {
         const id = res.locals.jwtPayload.userId;
 
-        const userRepository = getRepository(User);
         let user: User;
+        const userRepository = getRepository(User);
 
         try {
             user = await userRepository.findOneOrFail(id, {

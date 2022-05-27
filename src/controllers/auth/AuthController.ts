@@ -1,44 +1,27 @@
-import * as jwt from 'jsonwebtoken';
-import config from '@/config/config';
 import {Request, Response} from 'express';
-import {User} from '@/entities/User';
-import {getRepository} from 'typeorm';
-import {UserService} from "@/services/user/UserService";
+import {AuthService} from '@/services/auth/AuthService';
 
 export class AuthController {
-    async login(req: Request, res: Response) {
+    async getLogin(req: Request, res: Response) {
         let {username, password} = req.body;
 
         if (!(username && password)) {
             res.status(400).send();
         }
 
-        const userRepository = getRepository(User);
-        let user: User;
-        try {
-            user = await userRepository.findOneOrFail({where: {username}});
-        } catch (error) {
-            res.status(401).send();
-        }
+        const service = new AuthService();
 
-        if (!user.checkIfUnencryptedPasswordIsValid(password)) {
-            res.status(401).send();
-            return;
-        }
+        const result = await service.getLogin({username, password});
 
-        const token = jwt.sign(
-            {userId: user.id, username: user.username},
-            config.jwtSecret,
-            {expiresIn: "1h"}
-        );
+        if (result instanceof Error) return res.status(401).json(result.message);
 
-        return res.json(token);
+        return res.json(result);
     }
 
     async getOneById(req: Request, res: Response) {
         const {id} = req.params;
 
-        const service = new UserService();
+        const service = new AuthService();
 
         const result = await service.getOneById({id});
 

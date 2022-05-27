@@ -16,7 +16,7 @@ const routes = Router();
 
 routes
     .route("/api/v1/auth/login")
-    .post(new AuthController().login);
+    .post(new AuthController().getLogin);
 
 routes
     .route("/api/v1/auth/:id([0-9]+)")
@@ -28,6 +28,10 @@ routes
 routes
     .route("/api/v1/assigned-users")
     .get(new UsersController().getAssignedUsers);
+
+routes
+    .route("/api/v1/assigned-tickets/:id([0-9]+)")
+    .get(new TicketController().getAssignedTickets);
 
 routes
     .route("/api/v1/roles")

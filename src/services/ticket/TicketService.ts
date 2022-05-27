@@ -1,6 +1,10 @@
 import {getRepository} from 'typeorm';
 import {Ticket} from '@/entities/Ticket';
 
+type AssignedTicketsRequest = {
+    id: string;
+};
+
 type OneRequest = {
     id: string;
 };
@@ -12,6 +16,15 @@ export class TicketService {
         return await repo.find({
             relations: ["userCreator", "userAssigned", "status"]
         });
+    }
+
+    async getAssignedTickets({id}: AssignedTicketsRequest) {
+        return await getRepository(Ticket)
+            .createQueryBuilder("ticket")
+            .leftJoinAndSelect('ticket.userCreator', 'userCreator')
+            .leftJoinAndSelect('ticket.status', 'status')
+            .where('ticket.assigned_user_id = :id', {id})
+            .getMany();
     }
 
     async getOneById({id}: OneRequest) {

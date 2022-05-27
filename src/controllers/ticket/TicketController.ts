@@ -10,6 +10,18 @@ export class TicketController {
         return res.json(tickets);
     }
 
+    async getAssignedTickets(req: Request, res: Response) {
+        const {id} = req.params;
+
+        const service = new TicketService();
+
+        const result = await service.getAssignedTickets({id});
+
+        if (result instanceof Error) return res.status(400).json(result.message);
+
+        return res.json(result);
+    }
+
     async getOneById(req: Request, res: Response) {
         const {id} = req.params;
 

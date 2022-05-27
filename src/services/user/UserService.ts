@@ -21,7 +21,7 @@ export class UserService {
     async getAssignedUsers() {
         return await getRepository(User)
             .createQueryBuilder("user")
-            .innerJoin("user.roles", "role", "role.name = :name", {name: "dev"})
+            .innerJoinAndSelect("user.roles", "role", "role.name = :name", {name: "dev"})
             .loadRelationCountAndMap("user.countTotalTickets",
                 "user.assigned",
                 "assigned")
