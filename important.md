@@ -1,4 +1,4 @@
-#### Paquetes
+#### Packages
 - yarn add express mysql2 reflect-metadata uuid
 - yarn add typeorm@0.2.45
 - yarn add @types/express @types/nodemon nodemon ts-node-dev typescript -D
@@ -8,7 +8,7 @@
 - yarn add class-validator --save
 - yarn add @types/cors cors helmet
 
-#### Comandos
+#### Commands
 - yarn install
 - yarn tsc --init
 - yarn dev
@@ -22,3 +22,6 @@
 - yarn typeorm migration:show
 - yarn typeorm migration:run
 - yarn typeorm migration:revert
+
+#### Restart nodemon server
+- rs
