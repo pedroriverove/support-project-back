@@ -1,14 +1,14 @@
-# Support Project Back
+# Support project backend
 
 ### Used technology:
 
-- Node [Node](https://nodejs.org/en/)
-- Express [Express](https://expressjs.com/pt-br/)
-- TypeScript [TypeScript](https://www.typescriptlang.org/)
-- MySQL2 [MySQL2](https://www.npmjs.com/package/mysql2/)
-- Typeorm [Typeorm](https://typeorm.io/#/)
-- Nodemon [Nodemon](https://www.npmjs.com/package/nodemon/)
-- Json Web Token [JWT](https://github.com/auth0/node-jsonwebtoken/)
+- [Node](https://nodejs.org/en/)
+- [Express](https://expressjs.com/pt-br/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [MySQL2](https://www.npmjs.com/package/mysql2/)
+- [Typeorm](https://typeorm.io/#/)
+- [Nodemon](https://www.npmjs.com/package/nodemon/)
+- [JWT](https://github.com/auth0/node-jsonwebtoken/)
 
 ## Requirements
 
