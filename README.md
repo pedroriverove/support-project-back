@@ -1,6 +1,8 @@
-# Support project backend
+# Node | Express | TypeScript
 
-### Used technology:
+Backend project with JWT authentication to create, modify and delete tickets assigned to different developers.
+
+## Used technology
 
 - [Node](https://nodejs.org/en/)
 - [Express](https://expressjs.com/pt-br/)
