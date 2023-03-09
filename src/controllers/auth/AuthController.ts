@@ -3,7 +3,7 @@ import {AuthService} from '@/services/auth/AuthService';
 
 export class AuthController {
     async getLogin(req: Request, res: Response) {
-        let {username, password} = req.body;
+        const {username, password} = req.body;
 
         if (!(username && password)) {
             res.status(400).send();

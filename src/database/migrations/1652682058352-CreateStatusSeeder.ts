@@ -23,9 +23,9 @@ export class CreateStatusSeeder1652682058352 implements MigrationInterface {
 
     public async insertEntity(inserts: Array<string>) {
         for (const insert of inserts) {
-            let status: Status = new Status();
+            const status: Status = new Status();
 
-            status.name = insert
+            status.name = insert;
 
             const userRepository = getRepository(Status);
             await userRepository.save(status);

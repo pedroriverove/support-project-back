@@ -5,7 +5,7 @@ export class DeleteTicketController {
     async handle(req: Request, res: Response) {
         const {id} = req.params;
 
-        const service = new DeleteTicketService
+        const service = new DeleteTicketService;
 
         const result = await service.execute(id);
 

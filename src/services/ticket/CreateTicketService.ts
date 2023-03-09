@@ -33,7 +33,7 @@ export class CreateTicketService {
             resolution_date
         });
 
-        const create = await repo.save(ticket)
+        const create = await repo.save(ticket);
 
         return await repo.findOne(create.id, {relations: ["userCreator", "userAssigned", "status"]});
     }

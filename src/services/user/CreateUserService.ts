@@ -41,7 +41,7 @@ export class CreateUserService {
 
         user.hashPassword();
 
-        const create = await repo.save(user)
+        const create = await repo.save(user);
 
         return await repo.findOne(create.id, {relations: ["roles"]});
     }

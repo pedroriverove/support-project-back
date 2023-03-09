@@ -47,7 +47,7 @@ export class CreateUsersSeeder1652681909837 implements MigrationInterface {
 
     public async insertEntity(inserts: Array<any>) {
         for (const insert of inserts) {
-            let user: User = new User();
+            const user: User = new User();
 
             user.role_id = insert.role_id;
             user.username = insert.username;

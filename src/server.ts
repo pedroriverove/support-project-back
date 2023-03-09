@@ -20,6 +20,6 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(routes)
+app.use(routes);
 
 app.listen(port, () => console.log("\u{1F525} Server is running"));

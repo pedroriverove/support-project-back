@@ -37,7 +37,7 @@ export class UpdateTicketService {
         ticket.assignment_date = assignment_date ? assignment_date : ticket.assignment_date;
         ticket.resolution_date = resolution_date ? resolution_date : ticket.resolution_date;
 
-        const update = await repo.save(ticket)
+        const update = await repo.save(ticket);
 
         return await repo.findOne(update.id, {relations: ["userCreator", "userAssigned", "status"]});
     }

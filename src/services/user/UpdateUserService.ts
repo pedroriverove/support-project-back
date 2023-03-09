@@ -22,7 +22,7 @@ export class UpdateUserService {
         user.role_id = role_id ? role_id : user.role_id;
         user.fullname = fullname ? fullname : user.fullname;
 
-        const update = await repo.save(user)
+        const update = await repo.save(user);
 
         return await repo.findOne(update.id, {relations: ["roles"]});
     }

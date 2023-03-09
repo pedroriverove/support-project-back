@@ -27,7 +27,7 @@ export class CreateRolesSeeder1652680067128 implements MigrationInterface {
 
     public async insertEntity(inserts: Array<any>) {
         for (const insert of inserts) {
-            let role: Role = new Role();
+            const role: Role = new Role();
 
             role.name = insert.name;
             role.description = insert.description;
